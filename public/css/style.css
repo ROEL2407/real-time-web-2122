@@ -1,0 +1,36 @@
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(139, 0, 255, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+
+  font-family: "Courier New", Courier, monospace;
+}
+
+section {
+  background-color: #ffffffd6;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+ul {
+  padding: 0;
+}
+
+li:nth-of-type(even) {
+  background-color: #a9a9a957;
+}
+
+li {
+  list-style: none;
+  padding: 0.5em 0;
+}
+
+input {
+  padding: 0.5em;
+}
