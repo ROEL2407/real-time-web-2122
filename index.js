@@ -1,30 +1,30 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const http = require('http').createServer(app);
-const path = require('path');
-const io = require('socket.io')(http);
+const http = require("http").createServer(app);
+const path = require("path");
+const io = require("socket.io")(http);
 const port = process.env.PORT || 4242;
 
-app.set("view engine", "ejs")
+app.set("view engine", "ejs");
 
-app.use(express.static(path.resolve('public')));
+app.use(express.static(path.resolve("public")));
 
 app.get("/", (req, res) => {
-        res.render("chat", { });
+  res.render("chat", {});
+});
+
+io.on("connection", (socket) => {
+  console.log("a user connected");
+
+  socket.on("message", (message) => {
+    io.emit("message", message);
   });
 
-io.on('connection', (socket) => {
-  console.log('a user connected');
-
-  socket.on('message', (message) => {
-    io.emit('message', message);
-  })
-
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  })
-})
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+});
 
 http.listen(port, () => {
-  console.log('listening on port ', port);
-})
+  console.log("listening on port ", port);
+});
