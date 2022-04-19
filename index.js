@@ -5,7 +5,13 @@ const path = require('path');
 const io = require('socket.io')(http);
 const port = process.env.PORT || 4242;
 
+app.set("view engine", "ejs")
+
 app.use(express.static(path.resolve('public')));
+
+app.get("/", (req, res) => {
+        res.render("chat", { });
+  });
 
 io.on('connection', (socket) => {
   console.log('a user connected');
