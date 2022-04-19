@@ -1,0 +1,29 @@
+{
+  "name": "real-time-web-2122",
+  "version": "1.0.0",
+  "description": "chat app with socket.io",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ROEL2407/real-time-web-2122.git"
+  },
+  "keywords": [
+    "socket.io"
+  ],
+  "author": "Roel Komen & Marloes Tacx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ROEL2407/real-time-web-2122/issues"
+  },
+  "homepage": "https://github.com/ROEL2407/real-time-web-2122#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
+  }
+}
