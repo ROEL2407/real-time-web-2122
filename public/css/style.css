@@ -33,6 +33,27 @@ body {
   font-family: "Courier New", Courier, monospace;
 }
 
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+
+#game {
+  width: 59vw;
+}
+
+#chat {
+  width: 39vw;
+}
+
+h1 {
+  width: 100vw;
+  margin: 0.5em 1em;
+}
+
 section {
   background-color: #ffffffd6;
   border-radius: 50px;
@@ -54,8 +75,20 @@ li {
   padding: 0.5em 0;
 }
 
-input {
+input, form button {
   padding: 0.5em;
+  border: 1px solid grey;
+}
+
+input {
+  border-radius: 1em 0em 0em 1em;
+}
+
+form button {
+  padding-right: 0.75em;
+  margin-left: -0.8em;
+  background-color: white;
+  border-radius: 0em 1em 1em 0em;
 }
 
 #presentWord {
@@ -73,3 +106,15 @@ input {
   display: block;
   margin-bottom: 0.5em;
 }
+
+ul {
+  max-height: 16em;
+  overflow: auto;
+  margin-bottom: 0.5em;
+}
+
+ul li {
+  height: 2em;
+  background-color: none;
+}
+

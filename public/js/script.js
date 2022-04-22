@@ -23,11 +23,10 @@ const makeWord = document.querySelector("#makeWord");
 document.querySelector('#game').addEventListener('submit', event => {
   event.preventDefault();
   let word = wordInput.value;
-  
+  socket.emit(" ", word)
   for (var i = 0; i < word.length; i++) {
     wordHidden[i] = "_";
   }
-  console.log(wordHidden);
   wordHidden.forEach(item => {
     tempItem = document.createElement('span');
     tempItem.innerHTML = item;
