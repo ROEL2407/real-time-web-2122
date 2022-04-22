@@ -62,6 +62,7 @@ input {
   font-size: 4em;
   margin-bottom: 0.25em;
   text-align: center;
+  overflow-wrap: break-word;
 }
 
 #presentWord span {

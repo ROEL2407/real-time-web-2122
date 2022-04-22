@@ -13,7 +13,7 @@
       <section id="game">
         <svg></svg>
         <p id="presentWord"></p>
-        <form action="" id="makeWord">
+        <form action="" id="makeWord" autocomplete="off">
           <label for="wordInput">Fill in a word that others have to guess:</label>
           <input type="text" name="Word" id="wordInput">
           <button><span>Send</span></button>
@@ -22,7 +22,7 @@
       <section id="chat">
         <ul></ul>
         <form>
-          <input type="text" autocomplete="off">
+          <input type="text" autocomplete="off" minlength="1" maxlength="1">
           <button><span>Send</span></button>
         </form>
       </section>

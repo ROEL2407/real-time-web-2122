@@ -2,7 +2,7 @@ let socket = io();
 let messages = document.querySelector('section ul');
 const input = document.querySelector('#chat input');
 
-document.querySelector('form').addEventListener('submit', event => {
+document.querySelector('#chat form').addEventListener('submit', event => {
   event.preventDefault();
   if (input.value) {
     socket.emit('message', input.value);
@@ -19,8 +19,9 @@ const wordInput = document.querySelector('#wordInput');
 let wordHidden = [];
 
 
-const btn = document.querySelector("#makeWord button");
-btn.addEventListener("click", function() {
+const makeWord = document.querySelector("#makeWord");
+document.querySelector('#game').addEventListener('submit', event => {
+  event.preventDefault();
   let word = wordInput.value;
   
   for (var i = 0; i < word.length; i++) {
@@ -32,4 +33,6 @@ btn.addEventListener("click", function() {
     tempItem.innerHTML = item;
     document.getElementById('presentWord').appendChild(tempItem);
   })
+
+  makeWord.classList.add("hidden");
 })
