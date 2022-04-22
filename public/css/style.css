@@ -1,3 +1,26 @@
+/* --- Styling Reset --- */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+button {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+/* --- End Styling Reset --- */
+
 body {
   background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -33,4 +56,19 @@ li {
 
 input {
   padding: 0.5em;
+}
+
+#presentWord {
+  font-size: 4em;
+  margin-bottom: 0.25em;
+  text-align: center;
+}
+
+#presentWord span {
+  margin: 0em 0.25em;
+}
+
+#makeWord label {
+  display: block;
+  margin-bottom: 0.5em;
 }
