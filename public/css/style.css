@@ -57,10 +57,37 @@ main {
 }
 
 #chat {
+  position: relative;
   width: 39vw;
   grid-column: 2;
     grid-row-end: span last-line;
     grid-row-start: 1;
+}
+
+#chat form {
+  position: absolute;
+    bottom: 1em;
+    right: 0em;
+    max-width: 25em;
+    width: 100%;
+}
+
+#chat form input[type="text"] {
+  width: 24em;
+}
+
+#keys {
+  display: block;
+    text-align: center;
+}
+
+#keys button {
+  background-color: #fff;
+  border: 1px solid grey;
+  border-radius: 0.35em;
+  width: 4vw;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
 }
 
 h1 {
@@ -101,7 +128,7 @@ input {
 form button {
   padding-right: 0.75em;
   margin-left: -0.8em;
-  background-color: white;
+  background-color: #fff;
   border-radius: 0em 1em 1em 0em;
 }
 
