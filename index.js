@@ -17,6 +17,7 @@ const options = {
   }
 };
 
+
 app.set("view engine", "ejs");
 
 app.use(express.static(path.resolve("public")));
@@ -25,14 +26,22 @@ app.get("/", (req, res) => {
   
   fetch(url, options)
     .then(res => res.json())
-    .then(data => res.render("chat", {
-      data: data.list
-    }))
+    .then(data => {
+      let answer = data.list[Math.floor(Math.random() * data.list.length)];
+      res.render("chat", {
+        word: answer
+      })
+    })
     .catch(err => console.error('error:' + err));
 });
 
 io.on("connection", (socket) => {
   console.log("a user connected");
+
+  socket.on('create', function(room) {
+    socket.join(room);
+    console.log("user joined room:" + room)
+  });
 
   socket.on("message", (message) => {
     io.emit("message", message);
