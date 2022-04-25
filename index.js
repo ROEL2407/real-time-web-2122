@@ -24,15 +24,8 @@ app.use(express.static(path.resolve("public")));
 
 app.get("/", (req, res) => {
   
-  fetch(url, options)
-    .then(res => res.json())
-    .then(data => {
-      let answer = data.list[Math.floor(Math.random() * data.list.length)];
-      res.render("chat", {
-        word: answer
-      })
-    })
-    .catch(err => console.error('error:' + err));
+  res.render("chat", {
+  })
 });
 
 io.on("connection", (socket) => {
@@ -45,6 +38,16 @@ io.on("connection", (socket) => {
 
   socket.on("message", (message) => {
     io.emit("message", message);
+  });
+
+  socket.on("newWord", () => {
+    fetch(url, options)
+      .then(res => res.json())
+      .then(data => {
+        let answer = data.list[Math.floor(Math.random() * data.list.length)];
+        io.emit("newWord", answer);
+      })
+      .catch(err => console.error('error:' + err));
   });
 
   socket.on("disconnect", () => {
