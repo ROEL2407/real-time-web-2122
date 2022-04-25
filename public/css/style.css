@@ -41,12 +41,26 @@ main {
 
 }
 
-#game {
+#container {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0.5em;
+  padding: 0.5em;
+  grid-row-gap: 0.5em;
+  grid-auto-flow: row;
+}
+
+#game, #keys {
   width: 59vw;
 }
 
 #chat {
   width: 39vw;
+  grid-column: 2;
+    grid-row-end: span last-line;
+    grid-row-start: 1;
 }
 
 h1 {
