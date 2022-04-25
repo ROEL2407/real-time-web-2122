@@ -9,25 +9,26 @@
 
   <main>
       <h1>Galgje</h1>
-      <section id="game">
-        <svg></svg>
-        <p id="presentWord"></p>
-        <form action="" id="makeWord" autocomplete="off">
-          <label for="wordInput">Fill in a word that others have to guess:</label>
-          <input type="text" name="Word" id="wordInput">
-          <button><span>Send</span></button>
-        </form>
-      </section>
-      <section id="chat">
-        <ul></ul>
-        <form>
-          <input type="text" autocomplete="off" minlength="1" maxlength="1">
-          <button><span>Send</span></button>
-        </form>
-      </section>
-      <% data.forEach(function(item){%>
-        <p><%- item.definition %></p>
-        <% }) %>
+      <div id="container">
+        <section id="game">
+          <svg></svg>
+          <p id="presentWord"></p>
+          <form action="" id="makeWord" autocomplete="off">
+            <button><span>New word</span></button>
+          </form>
+        </section>
+        <section id="chat">
+          <ul></ul>
+          <form>
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
+            <button><span>Send</span></button>
+          </form>
+        </section>
+        <section id="keys">
+  
+        </section>
+      </div>
+        <p><%- word.word %></p>
   </main>
 
   <script src="/socket.io/socket.io.js"></script>
