@@ -25,6 +25,9 @@
           <button><span>Send</span></button>
         </form>
       </section>
+      <% data.forEach(function(item){%>
+        <p><%- item.definition %></p>
+        <% }) %>
   </main>
 
   <script src="/socket.io/socket.io.js"></script>

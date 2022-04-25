@@ -7,7 +7,7 @@ const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const port = process.env.PORT || 4200;
 
-const url = 'https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=wat';
+const url = 'https://api.urbandictionary.com/v0/random';
 
 const options = {
   method: 'GET',
@@ -22,7 +22,13 @@ app.set("view engine", "ejs");
 app.use(express.static(path.resolve("public")));
 
 app.get("/", (req, res) => {
-  res.render("chat", {});
+  
+  fetch(url, options)
+    .then(res => res.json())
+    .then(data => res.render("chat", {
+      data: data.list
+    }))
+    .catch(err => console.error('error:' + err));
 });
 
 io.on("connection", (socket) => {
@@ -36,11 +42,6 @@ io.on("connection", (socket) => {
     console.log("user disconnected");
   });
 });
-
-fetch(url, options)
-	.then(res => res.json())
-	.then(json => console.log(json))
-	.catch(err => console.error('error:' + err));
 
 http.listen(port, () => {
   console.log("listening on port ", port);
