@@ -53,7 +53,7 @@ If you don't want to download everything, there's an online version for you [her
 
 ## Grading
 
-Your efforts will be graded using a single point rubric (see below). You will have to pass the criterion (centre column) to pass the course. During the test you will be consulted and will be given feedback on things we think deficient and things we think are an improvement on the criterion.
+My efforts will be graded using a single point rubric (see below). I will have to pass the criterion (centre column) to pass the course. During the test I will be consulted and will be given feedback on things my course think deficient and things my course think are an improvement on the criterion.
 
 | Deficiency | Criterion                                                                                                                                                                                                                                                   | Improvement |
 | :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------- |
