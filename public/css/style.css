@@ -52,6 +52,10 @@ main {
   grid-auto-flow: row;
 }
 
+#game button:active, #keys button:active, #chat button:active {
+  background-color: grey;
+}
+
 #game, #keys {
   width: 59vw;
 }
@@ -161,3 +165,11 @@ ul li {
   background-color: none;
 }
 
+
+
+/* --- pop ups --- */
+.pop {
+  position: absolute;
+  left: 45vw;
+}
+/* --- end pop ups --- */
