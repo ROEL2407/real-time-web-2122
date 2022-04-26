@@ -17,6 +17,7 @@ const options = {
   }
 };
 
+let wordList = [];
 
 app.set("view engine", "ejs");
 
@@ -44,7 +45,17 @@ io.on("connection", (socket) => {
     fetch(url, options)
       .then(res => res.json())
       .then(data => {
-        let answer = data.list[Math.floor(Math.random() * data.list.length)];
+        data.list.forEach(item => {
+          if (item.word.indexOf(' ') < 0) {
+            wordList.push({
+              word: item.word,
+              definition: item.definition
+            })
+          }
+        })
+        console.log(wordList)
+        let answer = wordList[Math.floor(Math.random() * wordList.length)];
+        console.log(answer);
         io.emit("newWord", answer);
       })
       .catch(err => console.error('error:' + err));

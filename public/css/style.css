@@ -65,15 +65,9 @@ main {
 }
 
 #chat form {
-  position: absolute;
-    bottom: 1em;
-    right: 0em;
-    max-width: 25em;
+    max-width: 30em;
     width: 100%;
-}
-
-#chat form input[type="text"] {
-  width: 24em;
+    margin: 0em auto;
 }
 
 #keys {
@@ -101,10 +95,6 @@ section {
   display: flex;
   flex-direction: column;
   padding: 1em;
-}
-
-ul {
-  padding: 0;
 }
 
 li:nth-of-type(even) {
@@ -148,8 +138,20 @@ form button {
   margin-bottom: 0.5em;
 }
 
+fieldset {
+  border: none;
+}
+
+fieldset input {
+  width: 89%;
+}
+fieldset button {
+  width: 11%;
+}
+
 ul {
-  max-height: 16em;
+  max-height: 25em;
+  height: 100%;
   overflow: auto;
   margin-bottom: 0.5em;
 }

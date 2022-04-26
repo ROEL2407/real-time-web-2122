@@ -12,6 +12,8 @@ document.querySelector('#chat form').addEventListener('submit', event => {
   }
 })
 
+
+// checks if the user clicks on the button to generate a new word
 document.querySelector('#game form').addEventListener('submit', event => {
   event.preventDefault();
   socket.emit('newWord');
@@ -61,8 +63,6 @@ function generateButtons() {
 }
 
 socket.on('newWord', newWord => {
-  console.log(newWord);
-    // answer meot word.word worden
   
     //if letter exsists in word then letter has bigger value than 0. If it is letter is _
     wordStatus = newWord.word.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join("");
