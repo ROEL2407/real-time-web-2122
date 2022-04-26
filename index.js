@@ -47,10 +47,12 @@ io.on("connection", (socket) => {
       .then(data => {
         data.list.forEach(item => {
           if (item.word.indexOf(' ') < 0) {
-            wordList.push({
-              word: item.word,
-              definition: item.definition
-            })
+            if (item.word.indexOf('-') < 0) {
+              wordList.push({
+                word: item.word,
+                definition: item.definition
+              })
+            }
           }
         })
         console.log(wordList)
