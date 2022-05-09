@@ -49,6 +49,7 @@ socket.on('message', message => {
 // })
 
 
+let keys = [];
 let wordStatus = null;
 let guessWord = '';
 let wordDef = '';
@@ -57,13 +58,20 @@ let guessed = [];
 function generateButtons() {
   let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
     `
-    <button class="btn" id='` + letter +`' onClick="handleGuess(\'` + letter + `\')"">
+    <button class="btn keys" id='` + letter +`' ">
     ` + letter + `
     </button>
     `
     ).join('');
 
     document.getElementById('keys').innerHTML = buttonsHTML;
+    keys = document.querySelectorAll(".keys");
+    keys.forEach(key => {
+      key.addEventListener("click", key => {
+        let keyId = key.target.id;
+        socket.emit("clicked", keyId);
+      })
+    })
 }
 
 socket.on('newWord', newWord => {
@@ -81,16 +89,17 @@ socket.on('newWord', newWord => {
     wordStatus = guessWord.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join("");
   
     document.getElementById('presentWord').innerHTML = wordStatus;
-
     document.querySelector("#winnerWord").innerHTML = newWord.word;
-
     document.querySelector("#definition").innerHTML = newWord.definition;
 
 })
 
-function handleGuess(chosenLetter) {
+
+
+socket.on('clicked', chosenLetter => {
+  console.log(chosenLetter);
   guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
-  document.getElementById(chosenLetter).setAttribute('disabled', true)
+  document.getElementById(chosenLetter).setAttribute('disabled', true);
 
   if (guessWord.indexOf(chosenLetter) >= 0) {
     wordStatus = guessWord.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join("");
@@ -101,7 +110,7 @@ function handleGuess(chosenLetter) {
       socket.emit('winner');
     }
   }
-}
+})
 
 socket.on('winner', winner => {
   winner = document.querySelector("#winner");

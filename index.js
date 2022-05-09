@@ -69,6 +69,10 @@ io.on("connection", (socket) => {
     io.emit("winner")
   });
 
+  socket.on("clicked", (keyId) => {
+    io.emit("clicked", keyId)
+  });
+
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
