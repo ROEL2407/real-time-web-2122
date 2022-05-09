@@ -48,10 +48,12 @@ io.on("connection", (socket) => {
         data.list.forEach(item => {
           if (item.word.indexOf(' ') < 0) {
             if (item.word.indexOf('-') < 0) {
+              if (item.word.indexOf('.') < 0) {
               wordList.push({
                 word: item.word,
                 definition: item.definition
               })
+              }
             }
           }
         })
