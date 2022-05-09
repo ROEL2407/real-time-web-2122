@@ -18,7 +18,7 @@
     "socket.io"
   ],
   "author": "Roel Komen & Marloes Tacx",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ROEL2407/real-time-web-2122/issues"
   },
