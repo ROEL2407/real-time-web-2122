@@ -126,6 +126,17 @@ form button {
   border-radius: 0em 1em 1em 0em;
 }
 
+#makeWord {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#makeWord button {
+  border-radius: 1em;
+  margin: 0 auto;
+}
+
 #presentWord {
   font-size: 4em;
   margin-bottom: 0.25em;
