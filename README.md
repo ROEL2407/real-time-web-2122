@@ -8,10 +8,9 @@ Assignment<br />
 
 Project<br />
 [Usage](https://github.com/ROEL2407/real-time-web-2122#usage)<br />
-[Example images](https://github.com/ROEL2407/real-time-web-2122#example-images)<br />
+[Example images](https://github.com/ROEL2407/real-time-web-2122#datamodel)<br />
 [Installation](https://github.com/ROEL2407/real-time-web-2122#installation)<br />
 [Online version](https://github.com/ROEL2407/real-time-web-2122#online-version)<br />
-[Activity Diagram](https://github.com/ROEL2407/real-time-web-2122#activity-diagrams)<br />
 [Rubric](https://github.com/ROEL2407/real-time-web-2122#rubric)<br />
 [Commits](https://github.com/ROEL2407/real-time-web-2122#commits)<br />
 [Resources](https://github.com/ROEL2407/real-time-web-2122#resources)<br />
@@ -29,7 +28,7 @@ In this repository I've made a overview of art object from the Rijksmuseum. My g
 
 With this application you can look through some of the art objects Rijksmuseum has to offer. You can get more information about the pieces and make your own perspectives on it. (note: as of now the search function doesn't work).
 
-## Example images
+## Datamodel
 
 ## Installation
 
@@ -49,7 +48,7 @@ This project uses Nodemon. Because of hosting problems you need to change the np
 
 ## Online version
 
-If you don't want to download everything, there's an online version for you [here](https://pwa-rijksmuseum-roel.herokuapp.com/).
+If you don't want to download everything, there's an online version for you [here](https://galgje-thegame.herokuapp.com/).
 
 ## Grading
 
