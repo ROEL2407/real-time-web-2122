@@ -82,6 +82,10 @@ socket.on('newWord', newWord => {
   
     document.getElementById('presentWord').innerHTML = wordStatus;
 
+    document.querySelector("#winnerWord").innerHTML = newWord.word;
+
+    document.querySelector("#definition").innerHTML = newWord.definition;
+
 })
 
 function handleGuess(chosenLetter) {
