@@ -63,6 +63,10 @@ io.on("connection", (socket) => {
       .catch(err => console.error('error:' + err));
   });
 
+  socket.on("winner", () => {
+    io.emit("winner")
+  });
+
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });

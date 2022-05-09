@@ -67,6 +67,8 @@ function generateButtons() {
 }
 
 socket.on('newWord', newWord => {
+      resetWinner = document.querySelector("#winner");
+      resetWinner.classList.add("hidden");
       guessed = [];
       let keyboard_btn = document.querySelectorAll('.btn');
       keyboard_btn.forEach( item => {
@@ -92,17 +94,14 @@ function handleGuess(chosenLetter) {
     document.getElementById('presentWord').innerHTML = wordStatus;
     console.log(wordStatus);
     if (!wordStatus.includes('_')) {
-      winner();
+      socket.emit('winner');
     }
   }
 }
 
-function winner() {
-  const tempItem = document.createElement('div');
-  tempItem.setAttribute("class", "winner pop");
-  const output = '<h3>Winner!</h3>';
-  tempItem.innerHTML = output;
-  document.querySelector('main').appendChild(tempItem);
-}
+socket.on('winner', winner => {
+  winner = document.querySelector("#winner");
+  winner.classList.remove("hidden")
+})
 
 generateButtons();
