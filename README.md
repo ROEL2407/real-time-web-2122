@@ -30,6 +30,8 @@ With this application you can look through some of the art objects Rijksmuseum h
 
 ## Datamodel
 
+<img src="https://github.com/ROEL2407/real-time-web-2122/blob/main/readme-images/datamodel_rtw.jpg">
+
 ## Installation
 
 Clone this repository to your own device:
