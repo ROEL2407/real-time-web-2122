@@ -22,11 +22,11 @@ This repository is for my lessons from the minor Web Development from the HvA.
 
 ## What's the goal of this repository?
 
-In this repository I've made a overview of art object from the Rijksmuseum. My goal of this repo is to learn JavaScript more and understand it a bit better.
+In this repository you can play hangerman online with friends! The goal is to have fun and hangout with friends.
 
 ## Usage
 
-With this application you can look through some of the art objects Rijksmuseum has to offer. You can get more information about the pieces and make your own perspectives on it. (note: as of now the search function doesn't work).
+Ever wanted to play hangerman with friends online? well now you can. With this repo you can play hangerman with friends. You play together to guess the word.
 
 ## Datamodel
 
@@ -63,6 +63,14 @@ My efforts will be graded using a single point rubric (see below). I will have t
 |            | _Client-server interaction_ By interacting with the app, a user can influence the data model of the server in real time by directly modifying data OR by influencing API requests between server and source. The student has set up the data manipulations. |             |
 |            | _Data management_ The server maintains a data model and each client is continuously updated with the correct data.                                                                                                                                          |             |
 |            | _Multi-user support_ Multiple clients can connect to the server. Interaction works as expected and is not dependent on the number of clients. You can explain how your app approaches this.                                                                 |             |
+
+## Wishlist
+
+There are things I would like to add after this sprint. These things are:
+
+- Hangman images change on wrong input
+- loss pop up
+- login
 
 ## Commits
 
