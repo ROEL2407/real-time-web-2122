@@ -14,9 +14,14 @@ document.querySelector('#chat form').addEventListener('submit', event => {
   }
 })
 
+document.querySelector('#cross').addEventListener('click', event => {
+  event.preventDefault();
+  document.querySelector(".pop").classList.add("hidden");
+})
+
 
 // checks if the user clicks on the button to generate a new word
-document.querySelector('#game form').addEventListener('submit', event => {
+document.querySelector('.game form').addEventListener('submit', event => {
   event.preventDefault();
   socket.emit('newWord');
 })
@@ -78,24 +83,29 @@ socket.on('newWord', newWord => {
 
 
 socket.on('clicked', chosenLetter => {
-  console.log(chosenLetter);
-  guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
-  document.getElementById(chosenLetter).setAttribute('disabled', true);
+  guessed.indexOf(chosenLetter.key) === -1 ? guessed.push(chosenLetter.key) : null;
+  document.getElementById(chosenLetter.key).setAttribute('disabled', true);
 
-  if (guessWord.indexOf(chosenLetter) >= 0) {
+  if (guessWord.indexOf(chosenLetter.key) >= 0) {
     wordStatus = guessWord.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join("");
   
     document.getElementById('presentWord').innerHTML = wordStatus;
-    console.log(wordStatus);
     if (!wordStatus.includes('_')) {
       socket.emit('winner');
+      count = chosenLetter.wincount + 1;
+      socket.emit('winnerCount', count);
     }
   }
 })
 
 socket.on('winner', winner => {
-  winner = document.querySelector("#winner");
-  winner.classList.remove("hidden");
+  let popup = document.querySelector("#winner");
+  popup.classList.remove("hidden");
+})
+
+socket.on('winnerCount', winnerCount => {
+  console.log("test", winnerCount)
+  document.querySelector("#wincounter").innerHTML = winnerCount;
 })
 
 generateButtons();

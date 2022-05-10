@@ -59,11 +59,11 @@ main {
   grid-auto-flow: row;
 }
 
-#game button:active, #keys button:active, #chat button:active {
+.game button:active, #keys button:active, #chat button:active {
   background-color: grey;
 }
 
-#game, #keys {
+.game, #keys {
   width: 59vw;
 }
 
@@ -133,13 +133,13 @@ form button {
   border-radius: 0em 1em 1em 0em;
 }
 
-#makeWord {
+.makeWord {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-#makeWord button {
+.makeWord button {
   border-radius: 1em;
   margin: 0 auto;
 }
@@ -155,7 +155,7 @@ form button {
   margin: 0em 0.25em;
 }
 
-#makeWord label {
+.makeWord label {
   display: block;
   margin-bottom: 0.5em;
 }
@@ -186,7 +186,13 @@ ul li {
 
 
 /* --- pop ups --- */
-.pop {
+.hidden.pop {
+  display: none;
+}
+
+  .pop {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   z-index: 1;
   background-color: #dbf0ff;
@@ -195,5 +201,38 @@ ul li {
   border: 1px solid black;
   left: 5.5vw;
   top: 9vh;
+}
+
+
+#cross {
+  position: relative;
+  width: 2em;
+  height: 2em;
+  align-self: flex-end;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: none;
+}
+
+#cross div {
+  width: 0.25em;
+  background-color: #000;
+  height: 1em;
+  position: absolute;
+  transform: rotate(135deg);
+}
+
+#cross div:last-of-type {
+  width: 0.25em;
+  background-color: #000;
+  height: 1em;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+#definition {
+  margin-bottom: 1em;
 }
 /* --- end pop ups --- */

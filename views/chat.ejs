@@ -8,21 +8,25 @@
 <body>
   <header>
     <h1>Galgje</h1>
-    <p >times won: <span id="wincounter"></span></p>
+    <p >Your points: <span id="wincounter"></span></p>
   </header>
   <main>
       <div class="hidden pop" id="winner">
+        <button id="cross">
+          <div></div>
+          <div></div>
+        </button>
         <h3>
-          Winner!
+          Winner! You all get points!
         </h3>
-        <p>The word was:<span id="winnerWord"></span></p>
+        <p>The word was:<strong><span id="winnerWord"></span></strong></p>
         <p id="definition"></p>
       </div>
       <div id="container">
-        <section id="game">
+        <section class="game">
           <svg></svg>
           <p id="presentWord"></p>
-          <form action="" id="makeWord" autocomplete="off">
+          <form action="" class="makeWord" autocomplete="off">
             <button><span>New word</span></button>
           </form>
         </section>

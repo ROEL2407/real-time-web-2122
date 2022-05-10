@@ -32,17 +32,20 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
   console.log("a user connected");
-  io.emit("winCount", winCount)
+  io.emit("message", "a user connected");
+  io.emit("winCount", winCount);
 
   socket.on('create', function(room) {
     socket.join(room);
     console.log("user joined room:" + room)
   });
 
+  // send message from 1 client to all clients
   socket.on("message", (message) => {
     io.emit("message", message);
   });
 
+  //get a new word from the api that passes checks
   socket.on("newWord", () => {
     fetch(url, options)
       .then(res => res.json())
@@ -51,10 +54,12 @@ io.on("connection", (socket) => {
           if (item.word.indexOf(' ') < 0) {
             if (item.word.indexOf('-') < 0) {
               if (item.word.indexOf('.') < 0) {
-              wordList.push({
-                word: item.word,
-                definition: item.definition
-              })
+                if (item.word.indexOf(')') < 0) {
+                  wordList.push({
+                    word: item.word,
+                    definition: item.definition
+                  })
+                }
               }
             }
           }
@@ -67,13 +72,19 @@ io.on("connection", (socket) => {
       .catch(err => console.error('error:' + err));
   });
 
+  //if won make the counter of wins go up
   socket.on("winner", () => {
-    winCount =+ 1;
-    io.emit("winner");
+    winCount = winCount + 1;
+    io.emit("winner", winCount);
   });
 
+  // button gets disabled for everyone
   socket.on("clicked", (keyId) => {
-    io.emit("clicked", keyId)
+    io.emit("clicked", {key:keyId, wincount:winCount})
+  });
+
+  socket.on("winnerCount", (count) => {
+    io.emit("winnerCount", count)
   });
 
   socket.on("disconnect", () => {
