@@ -21,6 +21,13 @@ button {
 }
 /* --- End Styling Reset --- */
 
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
 body {
   background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -89,7 +96,7 @@ main {
 }
 
 h1 {
-  width: 100vw;
+  width: 70vw;
   margin: 0.5em 1em;
 }
 
@@ -181,6 +188,12 @@ ul li {
 /* --- pop ups --- */
 .pop {
   position: absolute;
-  left: 45vw;
+  z-index: 1;
+  background-color: #dbf0ff;
+  width: 50%;
+  padding: 5em;
+  border: 1px solid black;
+  left: 5.5vw;
+  top: 9vh;
 }
 /* --- end pop ups --- */
