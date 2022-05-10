@@ -67,6 +67,11 @@ main {
   width: 59vw;
 }
 
+.game img {
+  width: 50%;
+  margin: 0 auto;
+}
+
 #chat {
   position: relative;
   width: 39vw;
