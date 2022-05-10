@@ -18,6 +18,7 @@ const options = {
 };
 
 let wordList = [];
+let winCount = 0;
 
 app.set("view engine", "ejs");
 
@@ -31,6 +32,7 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
   console.log("a user connected");
+  io.emit("winCount", winCount)
 
   socket.on('create', function(room) {
     socket.join(room);
@@ -66,7 +68,8 @@ io.on("connection", (socket) => {
   });
 
   socket.on("winner", () => {
-    io.emit("winner")
+    winCount =+ 1;
+    io.emit("winner");
   });
 
   socket.on("clicked", (keyId) => {

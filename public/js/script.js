@@ -26,29 +26,6 @@ socket.on('message', message => {
   messages.scrollTop = messages.scrollHeight;
 })
 
-
-// const wordInput = document.querySelector('#wordInput');
-// let wordHidden = [];
-
-
-// const makeWord = document.querySelector("#makeWord");
-// document.querySelector('#game').addEventListener('submit', event => {
-//   event.preventDefault();
-//   let guessWord = word.word;
-//   socket.emit(" ", guessWord)
-//   for (var i = 0; i < guessWord.length; i++) {
-//     wordHidden[i] = "_";
-//   }
-//   wordHidden.forEach(item => {
-//     tempItem = document.createElement('span');
-//     tempItem.innerHTML = item;
-//     document.getElementById('presentWord').appendChild(tempItem);
-//   })
-
-//   makeWord.classList.add("hidden");
-// })
-
-
 let keys = [];
 let wordStatus = null;
 let guessWord = '';
@@ -73,6 +50,10 @@ function generateButtons() {
       })
     })
 }
+
+socket.on("winCount", winCount => {
+  document.querySelector("#wincounter").innerHTML = winCount;
+})
 
 socket.on('newWord', newWord => {
       resetWinner = document.querySelector("#winner");
@@ -114,7 +95,7 @@ socket.on('clicked', chosenLetter => {
 
 socket.on('winner', winner => {
   winner = document.querySelector("#winner");
-  winner.classList.remove("hidden")
+  winner.classList.remove("hidden");
 })
 
 generateButtons();
